@@ -4,25 +4,21 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     var tableView: UITableView?
     
-    var pokes: [Pokemon] = [] {
-        didSet {
-            DispatchQueue.main.async {
-                self.tableView?.reloadData()
-            }
-        }
-    }
-    
+    var viewModel: ViewModelType = {
+        return PokemonViewModel()
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AlamoFireManager.shared.fetchPokes{ (data) in
-            guard let res: ResponseObj = data else {return}
-            let pokes = res.results
-            self.pokes = pokes
-        }
         self.setUp()
+        // understand what this does
+        self.viewModel.bind(updateHandler: {
+            DispatchQueue.main.async {
+                self.tableView?.reloadData()
+            }
+        })
+        self.viewModel.fetchPokes()
     }
-    
     
     private func setUp() {
         let tableView = UITableView(frame: .zero)
@@ -32,17 +28,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.register(MyTableViewCell.self, forCellReuseIdentifier: MyTableViewCell.reuseId)
         
         self.view.addSubview(tableView)
-        
-        tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -8).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8).isActive = true
-        
+        tableView.boundToSuperView()
         self.tableView = tableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.pokes.count
+        return self.viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +41,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             return UITableViewCell()
         }
         
-        cell.pokemonName?.text = self.pokes[indexPath.row].name
+        cell.pokemonName?.text = self.viewModel.name(index: indexPath.row)
         
         return cell
     }

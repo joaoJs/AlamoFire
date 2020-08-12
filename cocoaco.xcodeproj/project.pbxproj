@@ -17,6 +17,8 @@
 		D8EB382B24E405EA0034F6DC /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB382A24E405EA0034F6DC /* MyTableViewCell.swift */; };
 		D8EB382D24E406220034F6DC /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB382C24E406220034F6DC /* NetworkManager.swift */; };
 		D8EB382F24E406470034F6DC /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB382E24E406470034F6DC /* Pokemon.swift */; };
+		D8EB38B124E48EFD0034F6DC /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB38B024E48EFD0034F6DC /* PokemonViewModel.swift */; };
+		D8EB38B324E4970D0034F6DC /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EB38B224E4970D0034F6DC /* UIView+Utils.swift */; };
 		EC2F64ECA120372E7C482D32 /* Pods_cocoaco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B0DB0B5F97EFF5212DE1637 /* Pods_cocoaco.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		D8EB382A24E405EA0034F6DC /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		D8EB382C24E406220034F6DC /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D8EB382E24E406470034F6DC /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		D8EB38B024E48EFD0034F6DC /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
+		D8EB38B224E4970D0034F6DC /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		D8EB380424E34A800034F6DC = {
 			isa = PBXGroup;
 			children = (
+				D8EB38AF24E48EC20034F6DC /* ViewModel */,
 				D8EB382724E405980034F6DC /* AlamoNetwork */,
 				D8EB382624E405940034F6DC /* View */,
 				D8EB382524E4058C0034F6DC /* Model */,
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				D8EB382A24E405EA0034F6DC /* MyTableViewCell.swift */,
+				D8EB38B224E4970D0034F6DC /* UIView+Utils.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +139,14 @@
 				D8EB382C24E406220034F6DC /* NetworkManager.swift */,
 			);
 			path = AlamoNetwork;
+			sourceTree = "<group>";
+		};
+		D8EB38AF24E48EC20034F6DC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D8EB38B024E48EFD0034F6DC /* PokemonViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,8 @@
 				D8EB381124E34A800034F6DC /* AppDelegate.swift in Sources */,
 				D8EB381324E34A800034F6DC /* SceneDelegate.swift in Sources */,
 				D8EB382B24E405EA0034F6DC /* MyTableViewCell.swift in Sources */,
+				D8EB38B124E48EFD0034F6DC /* PokemonViewModel.swift in Sources */,
+				D8EB38B324E4970D0034F6DC /* UIView+Utils.swift in Sources */,
 				D8EB382924E405B90034F6DC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
